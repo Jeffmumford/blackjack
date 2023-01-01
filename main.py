@@ -42,12 +42,12 @@ def hit_stay(player):
         print(f'Players Total: {total_hand(player)}')
 
         
-
+        #break the loop if player has bust
         if total_hand(player) > 21:
             print('Player is bust!')
             choice = False
             
-
+        #break the loop if player hit blackjack
         elif total_hand(player) == 21:
             print('Blackjack!  Player wins!')
             choice = False
@@ -74,7 +74,7 @@ def dealers_turn(dealer):
     
         print(f'Dealers hand: \n{dealer}')
         
-
+    #prints dealers total if they are already over 17
     if total_hand(dealer) >= 17:
         print(f'Dealers hand: \n{dealer}')
         print(f'Dealers Total: {total_hand(dealer)}')
@@ -125,9 +125,10 @@ while game:
         player.add_card(deck.deal_one())
         dealer.add_card(deck.deal_one())
 
-
+    #start players turn
     hit_stay(player)
 
+    #start dealers turn as long as player hasn't bust
     if total_hand(player) < 21:
         dealers_turn(dealer)
 
